@@ -1,31 +1,39 @@
 import { useState } from "react"
 import './index.css'
 import { useNavigate } from "react-router-dom";
-import { useLoginContext } from "./AppContextProvider";
+import { useActivityHistoryContext } from "./AppContextProvider";
+import { getDate } from "./utils";
 
 export default function CustomerSearchTile() {
   const navigate = useNavigate();
+  const { activityHistory, setActivityHistory } = useActivityHistoryContext();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
   });
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value
-    })
+    });
   };
 
   const handleSearch = () => {
-    // send request to db for customer names
-    // nav to customer view route
-    navigate('/customer_tool')
+    // TODO: send request to db for customer names
+    if (formData.name.length > 0 || formData.email.length > 0) {
+      console.log('here ' + activityHistory);
+      setActivityHistory([`Customer Search::${getDate()}`, ...activityHistory]);
+      navigate('/customer_tool');
+    }
 
   }
   return (<div className="customer-box">
     <h3>Customer Search</h3>
-    <p>This is where customer info searching and display would go.</p>
+    <p>Input any field to search customer account.</p>
     <div style={{
       display: 'flex',
       flexDirection: 'column',

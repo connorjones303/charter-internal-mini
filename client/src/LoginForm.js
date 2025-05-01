@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useLoginContext } from './AppContextProvider';
+import { useLoginContext, useActivityHistoryContext } from './AppContextProvider';
+import { getDate } from './utils';
 
 export default function LoginForm() {
 
@@ -8,7 +9,8 @@ export default function LoginForm() {
     password: ''
   });
 
-  const { setIsLoggedIn } = useLoginContext();
+  const { setIsLoggedIn, setUser } = useLoginContext();
+  const { activityHistory, setActivityHistory } = useActivityHistoryContext();
 
   // Handle input changes
   const handleChange = (e) => {
@@ -23,6 +25,9 @@ export default function LoginForm() {
   // Handle form submission
   const handleSubmit = (e) => {
     // TODO: Login everytime, add authentication
+    const user = formData.username
+    setUser(user);
+    setActivityHistory([`Login::${getDate()}`, ...activityHistory]);
     setIsLoggedIn(true);
     e.preventDefault();
   };
@@ -87,7 +92,7 @@ export default function LoginForm() {
 
           <button
             type="submit"
-            class="btn-blue"
+            className="btn-blue"
           >
             Login
           </button>

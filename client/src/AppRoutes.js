@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import Dashboard from './Dashboard';
-import CustomerView from './CustomerView';
+import CustomerToolPage from './CustomerToolPage';
 import { useLoginContext } from './AppContextProvider';
 
 export default function AppRoutes() {
@@ -29,7 +29,7 @@ export default function AppRoutes() {
           path="/customer_tool"
           element={
             isLoggedIn ?
-              <CustomerView /> :
+              <CustomerToolPage /> :
               <Navigate to="/" replace />
           }
         />
