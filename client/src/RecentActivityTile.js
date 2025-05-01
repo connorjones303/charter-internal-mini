@@ -1,4 +1,11 @@
+import { useState } from "react"
+
 export default function RecentActivityTile() {
+  const [activityList, setActivityList] = useState([]);
+
+
+
+
   return (<div style={{
     padding: '15px',
     backgroundColor: '#e3f2fd',

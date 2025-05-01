@@ -1,10 +1,10 @@
 import { useState } from "react"
 import './index.css'
 import { useNavigate } from "react-router-dom";
+import { useLoginContext } from "./AppContextProvider";
 
 export default function CustomerSearchTile() {
   const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,7 +20,7 @@ export default function CustomerSearchTile() {
   const handleSearch = () => {
     // send request to db for customer names
     // nav to customer view route
-    navigate('/dashboard/customer')
+    navigate('/customer_tool')
 
   }
   return (<div className="customer-box">

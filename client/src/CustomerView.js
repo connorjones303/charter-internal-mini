@@ -4,13 +4,13 @@ import PageHeader from "./PageHeader";
 import CustomerSearchTile from "./CustomerSearchTile";
 
 
-export default function CustomerView({ logOut = () => { } }) {
+export default function CustomerView() {
   const navigate = useNavigate()
   const navToDashboardButton = <button onClick={() => { navigate('/dashboard') }} className="btn-white-sm">Back to Dashboard</button>
   return (<div className="customer-box">
-    <PageHeader logOut={logOut} Children={navToDashboardButton} />
+    <PageHeader children={navToDashboardButton} />
     <h1>Customer Tool</h1>
-    <p>Search information on customer make changes to their plan</p>
+    <p>Search information on customers and make changes to their plan.</p>
     <CustomerSearchTile />
   </div>)
 }

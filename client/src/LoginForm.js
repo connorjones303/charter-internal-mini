@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { useLoginContext } from './AppContextProvider';
 
-export default function LoginForm({ onLogin }) {
+export default function LoginForm() {
 
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   });
+
+  const { setIsLoggedIn } = useLoginContext();
 
   // Handle input changes
   const handleChange = (e) => {
@@ -19,8 +22,9 @@ export default function LoginForm({ onLogin }) {
 
   // Handle form submission
   const handleSubmit = (e) => {
+    // TODO: Login everytime, add authentication
+    setIsLoggedIn(true);
     e.preventDefault();
-    onLogin();
   };
 
   return (
