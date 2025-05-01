@@ -8,8 +8,9 @@
 
 ### medium
 
-1. create manager dahsboard, distinct from current employee dashboard
+1. create manager dashboard, distinct from current employee dashboard
 2. make a ticketing tile in dashboard that creates a ticket, which is would be some kind of action
+3. add specific tools for modifying customer data in the customerToolPage component
 
 ### large
 
