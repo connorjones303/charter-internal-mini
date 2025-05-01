@@ -8,6 +8,8 @@ CREATE TYPE competitors AS ENUM('comcast', 'dish', 'xfinity');
 
 CREATE TABLE customers (
  id SERIAL PRIMARY KEY,
+ account_name VARCHAR(100) NOT NULL,
+ email VARCHAR(100) UNIQUE NOT NULL,
  current_deal plan_type NOT NULL,
  plan_end_date TIMESTAMP NOT NULL,
  plan_start_date TIMESTAMP NOT NULL
@@ -15,9 +17,8 @@ CREATE TABLE customers (
 
 CREATE TABLE employees (
  id SERIAL PRIMARY KEY,
- username VARCHAR(50) UNIQUE NOT NULL,
  email VARCHAR(100) UNIQUE NOT NULL,
- password VARCHAR(100) NOT NULL,
+ employee_password VARCHAR(100) NOT NULL,
  privilege employee_privilege NOT NULL
 );
 
