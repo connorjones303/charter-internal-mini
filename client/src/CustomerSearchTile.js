@@ -3,6 +3,7 @@ import './index.css'
 import { useNavigate } from "react-router-dom";
 import { useActivityHistoryContext } from "./AppContextProvider";
 import { getDate } from "./utils";
+import DashboardTile from "./DashboardTile";
 
 export default function CustomerSearchTile() {
   const navigate = useNavigate();
@@ -22,23 +23,25 @@ export default function CustomerSearchTile() {
     });
   };
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
     // TODO: send request to db for customer names
     if (formData.name.length > 0 || formData.email.length > 0) {
-      console.log('here ' + activityHistory);
-      setActivityHistory([`Customer Search::${getDate()}`, ...activityHistory]);
+      setActivityHistory([`Customer Search:\n${Object.values(formData).join(' ')}::${getDate()}`, ...activityHistory]);
       navigate('/customer_tool');
+      e.preventDefault()
     }
 
   }
-  return (<div className="customer-box">
+  return (<DashboardTile color="var(--green-light)">
     <h3>Customer Search</h3>
     <p>Input any field to search customer account.</p>
-    <div style={{
+    <form style={{
       display: 'flex',
       flexDirection: 'column',
       gap: '10px'
-    }}>
+    }}
+      onSubmit={handleSearch}
+    >
 
       <input
         id='name' name='name'
@@ -54,14 +57,13 @@ export default function CustomerSearchTile() {
       />
       <button
         className="btn-blue"
-        type="button"
-        onClick={handleSearch}
+        type="submit"
       >
         Search Customer
       </button>
-    </div>
+    </form>
 
 
 
-  </div>)
+  </DashboardTile>)
 }

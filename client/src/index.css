@@ -1,3 +1,20 @@
+:root {
+
+  /* color themes
+  ultra dark > super dark > dark > medium > light > super light > ultra light
+  */
+  --blue-super-dark:  #1d3c5f;
+  --blue-dark: #284f7a;
+  --blue: #3a6ea5;
+  --blue-light: #e3f2fd;
+  --blue-super-light: #e6f0ff;
+  --blue-ultra-light: #f0f8ff; 
+  --green-light: #e8f5e9;
+  --white: white;
+  --grey: #ccc;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -18,15 +35,17 @@ code {
   margin: 0 auto;
 }
 
-.customer-box {
+.dashboard-tile {
   padding: 15px;
-  background-color: #e8f5e9;
+  background-color: var(--blue-light);
   border-radius: 8px;
+  align-items: center;
 }
 
 .btn-blue {
-  background-color: #3a6ea5;
-  color: white;
+  background-color: var(--blue);
+  color: var(--white);
+  max-height: '80px';
   border: none;
   border-radius: 25px;
   padding: 12px 24px;
@@ -39,20 +58,21 @@ code {
 }
 
 .btn-blue:hover {
-  background-color: #284f7a;
+  background-color: var(--blue-dark);
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
 }
 
 .btn-blue:active {
-  background-color: #1d3c5f;
+  background-color: var(--blue-super-dark);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   transform: translateY(1px);
 }
 
 .btn-white-sm {
-  background-color: white;
-  color: #3a6ea5;
-  border: 2px solid #3a6ea5;
+  background-color: var(--white);
+  color: var(--blue);
+  border: 2px solid var(--blue);
+  max-height: '80px';
   border-radius: 20px;
   padding: 8px 16px;
   font-size: 14px;
@@ -64,18 +84,34 @@ code {
 }
 
 .btn-white-sm:hover {
-  background-color: #f0f8ff;
+  background-color: var(--blue-ultra-light);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
 }
 
 .btn-white-sm:active {
-  background-color: #e6f0ff;
+  background-color: var(--blue-super-light);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   transform: translateY(1px);
 }
 
+.btn-pagination {
+  background: none;
+  border: none;
+  font-size: 11px;
+  color: var(--blue);
+  cursor: pointer;
+  padding: 10px;
+  min-width: 30px;
+  text-align: center;
+}
+.btn-pagination:hover {
+  color: var(--blue-super-dark);
+}
 
-
+.btn-pagination.active {
+  color: #000;
+  font-weight: bold;
+}
 
 input {
   padding: 8px;

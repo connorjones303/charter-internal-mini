@@ -10,7 +10,7 @@ export default function CustomerToolPage() {
     onClick={() => { navigate('/dashboard') }}
     className="btn-white-sm">Dashboard
   </button>
-  return (<div className="customer-box">
+  return (<div style={{ padding: '50px' }}>
     <PageHeader children={navToDashboardButton} />
     <h1>Customer Tool</h1>
     <p>Search information on customers and make changes to their plan.</p>

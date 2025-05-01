@@ -10,13 +10,16 @@ export default function Dashboard() {
       <h1>Dashboard</h1>
       <p>Welcome! You are now logged in.</p>
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(2, 1fr)',
+        display: 'flex',
         gap: '20px',
-        marginTop: '20px'
+        marginTop: '20px',
       }}>
-        <RecentActivityTile />
-        <CustomerSearchTile />
+        <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+          <RecentActivityTile />
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+          <CustomerSearchTile />
+        </div>
       </div>
     </div>
   );
